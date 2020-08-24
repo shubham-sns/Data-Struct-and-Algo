@@ -41,7 +41,7 @@ const nextGreaterElement = (list) => {
     while (!stack.isEmpty() && list[stack.top()] < list[i]) {
       output[stack.top()] = list[i];
       stack.pop();
-      console.log("While:", i, stack.printStack(), output);
+      // console.log("While:", i, stack.printStack(), output);
     }
     stack.push(i);
     // console.log("After: ", output, stack.printStack());
