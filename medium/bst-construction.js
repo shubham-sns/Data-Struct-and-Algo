@@ -41,65 +41,66 @@ class BST {
     return false;
   }
 
-  // removes(value, parentNode = null) {
-  //   let currentNode = null;
-  //   while (currentNode !== null) {
-  //     if (value < currentNode.value) {
-  //       parentNode = currentNode;
-  //       currentNode = currentNode.left;
-  //     } else if (value > currentNode.value) {
-  //       parentNode = currentNode;
-  //       currentNode = currentNode.right;
-  //     } else {
-  //       if (currentNode !== null) {
-  //         let currentNode = this;
-  //         while (currentNode !== null) {
-  //           if (value < currentNode.value) {
-  //             parentNode = currentNode;
-  //             currentNode = currentNode.left;
-  //           } else if (value > currentNode.value) {
-  //             parentNode = currentNode;
-  //             currentNode = currentNode.right;
-  //           } else {
-  //             if (currentNode.left !== null && currentNode.right !== null) {
-  //               currentNode.value = currentNode.right.getMinValue();
-  //               currentNode.right.remove(currentNode.value, currentNode);
-  //             } else if (parentNode === value) {
-  //               if (currentNode.left !== null) {
-  //                 currentNode.value = currentNode.right.value;
-  //                 currentNode.right = currentNode.right.left;
-  //                 currentNode.right = currentNode.right.right;
-  //               } else {
-  //                 currentNode.value = null;
-  //               }
-  //             } else if (parentNode.left === currentNode) {
-  //               performance.left =
-  //                 currentNode.left !== null
-  //                   ? currentNode.left
-  //                   : currentNode.right;
-  //             } else if (parentNode.right === currentNode) {
-  //               parentNode.right =
-  //                 currentNode.left !== null
-  //                   ? currentNode.left
-  //                   : currentNode.right;
-  //             }
-  //             break;
-  //           }
-  //         }
-  //         return this;
-  //       }
-  //     }
-  //   }
-  // }
+  /*   removes(value, parentNode = null) {
+    let currentNode = null;
+    while (currentNode !== null) {
+      if (value < currentNode.value) {
+        parentNode = currentNode;
+        currentNode = currentNode.left;
+      } else if (value > currentNode.value) {
+        parentNode = currentNode;
+        currentNode = currentNode.right;
+      } else {
+        if (currentNode !== null) {
+          let currentNode = this;
+          while (currentNode !== null) {
+            if (value < currentNode.value) {
+              parentNode = currentNode;
+              currentNode = currentNode.left;
+            } else if (value > currentNode.value) {
+              parentNode = currentNode;
+              currentNode = currentNode.right;
+            } else {
+              if (currentNode.left !== null && currentNode.right !== null) {
+                currentNode.value = currentNode.right.getMinValue();
+                currentNode.right.remove(currentNode.value, currentNode);
+              } else if (parentNode === value) {
+                if (currentNode.left !== null) {
+                  currentNode.value = currentNode.right.value;
+                  currentNode.right = currentNode.right.left;
+                  currentNode.right = currentNode.right.right;
+                } else {
+                  currentNode.value = null;
+                }
+              } else if (parentNode.left === currentNode) {
+                performance.left =
+                  currentNode.left !== null
+                    ? currentNode.left
+                    : currentNode.right;
+              } else if (parentNode.right === currentNode) {
+                parentNode.right =
+                  currentNode.left !== null
+                    ? currentNode.left
+                    : currentNode.right;
+              }
+              break;
+            }
+          }
+          return this;
+        }
+      }
+    }
+  }
+ */
 
-//   getMinValue() {
-//     let currentNode = this;
-//     while (currentNode.left !== null) {
-//       currentNode = currentNode.left;
-//     }
-//     return currentNode.value;
-//   }
-// }
+  getMinValue() {
+    let currentNode = this;
+    while (currentNode.left !== null) {
+      currentNode = currentNode.left;
+    }
+    return currentNode.value;
+  }
+}
 
 const bst = new BST(10);
 bst.insert(12);

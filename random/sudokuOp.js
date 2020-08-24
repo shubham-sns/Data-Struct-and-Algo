@@ -1,3 +1,6 @@
+// blog
+// https://www.maxwellantonucci.com/2019/10/07/sudoku-breakdown.html
+
 const checkSudoku = (board) => {
   const isSudokuArrayValid = (array) => {
     const row = [...array].sort().join(""),

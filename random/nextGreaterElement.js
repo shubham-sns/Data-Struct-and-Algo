@@ -1,22 +1,3 @@
-// O(n2)
-
-// const nextGreaterElement = (list) => {
-//   let output = [];
-//   for (let i = 0; i < list.length; i++) {
-//     let next = -1;
-//     for (let j = i + 1; j < list.length; j++) {
-//       if (list[j] > list[i]) {
-//         next = list[j];
-//         break;
-//       }
-//     }
-//     output.pushValue(next);
-//   }
-//   return output;
-// };
-
-// O(n) => using stack
-
 class Stack {
   constructor() {
     this.stack = [];
@@ -69,8 +50,26 @@ const nextGreaterElement = (list) => {
   return output;
 };
 
+// O(n2)
+/* const nextGreaterElement = (list) => {
+  let output = [];
+  for (let i = 0; i < list.length; i++) {
+    let next = -1;
+    for (let j = i + 1; j < list.length; j++) {
+      if (list[j] > list[i]) {
+        next = list[j];
+        break;
+      }
+    }
+    output.pushValue(next);
+  }
+  return output;
+}; */
+
+// O(n) => using stack
+
 console.log("o/p", nextGreaterElement([4, 5, 2, 1, 25])); //[5,25,25,25,-1]
-// console.log(nextGreaterElement([11, 3, 7, 6, 11, 12])); //[12,7,11,11,12,-1]
+console.log(nextGreaterElement([11, 3, 7, 6, 11, 12])); //[12,7,11,11,12,-1]
 
 /* stack = [];
 output = [];
@@ -85,7 +84,5 @@ start => stack = [0]
     list[ stack[0] ] < list[ stack[1] ]
       ?  output[0] = list[i]; stack.pop()
       :
-
-
 
  */
