@@ -5,7 +5,6 @@ function twoNumberSum(array, targetSum) {
   for (const num of array) {
     const potentialMatch = targetSum - num;
     if (potentialMatch in nums) {
-      console.log([num, targetSum - num]);
     } else {
       nums[num] = true;
     }
