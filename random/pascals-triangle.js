@@ -1,24 +1,23 @@
-const generate = (row) => {
-  if (+row === 0) {
-    return [];
-  } else if (+row === 1) {
-    return [1];
-  }
+const pascalsTriangle = (rows) => {
+  let triangle = [];
+  if (rows === 0) return triangle;
 
-  let triagle = [[1]];
+  triangle.push([1]);
 
   for (let i = 1; i < row; i++) {
-    let row = [1];
-    for (let j = 1; j <= i; j++) {
-      row.push([triagle[i - 1]][j - 1] + triagle[i - 1][j]);
+    let prevRow = triangle[i - 1];
+    let currRow = [];
+    currRow.push(1);
+    for (let j = 1; j < i; j++) {
+      currRow.push(prevRow[j - 1] + prevRow[j]);
     }
-    // row.push(1);
-    // triagle.push(row);
+    currRow.push(1);
+    triangle.push(currRow);
   }
 
-  return triagle;
+  return triangle;
 };
-console.log(generate(5));
+console.log(pascalsTriangle(5));
 // Output:
 // [
 //      [1],
