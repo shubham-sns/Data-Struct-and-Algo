@@ -1,33 +1,4 @@
-class Stack {
-  constructor() {
-    this.stack = [];
-  }
-
-  printStack() {
-    return this.stack;
-  }
-
-  push(val) {
-    this.stack.push(val);
-    return this.stack;
-  }
-
-  pop() {
-    if (this.stack) {
-      return this.stack.pop();
-    }
-    return null;
-  }
-
-  top() {
-    const length = this.stack.length;
-    return this.stack[length - 1];
-  }
-
-  isEmpty() {
-    return this.stack.length > 0 ? false : true;
-  }
-}
+const { Stack } = require("./Stack/Stack.Array");
 
 const nextGreaterElement = (list) => {
   let output = [];
