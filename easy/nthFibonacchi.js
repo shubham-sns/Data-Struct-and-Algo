@@ -2,7 +2,7 @@
 
 // O(n) time | O(1) space
 function getNthFib(n) {
-  const initial = [0, 1];
+  let initial = [0, 1];
   let counter = 3;
   while (counter < n) {
     const newFib = initial[0] + initial[1];
