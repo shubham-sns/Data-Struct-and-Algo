@@ -127,7 +127,7 @@ class BinarySearchTree {
       }
     }
   }
-  BreadthFirstSearch() {
+  breadthFirstSearch() {
     let currentNode = this.root;
     let list = [];
     let queue = [];
@@ -145,7 +145,6 @@ class BinarySearchTree {
     }
     return list;
   }
-
   breathFirstSearchRecursive(queue = [this.root], list = []) {
     if (!queue.length) return list;
 
@@ -160,7 +159,61 @@ class BinarySearchTree {
 
     return this.breathFirstSearchRecursive(queue, list);
   }
+  deapthFirstSearchInorder() {
+    return traverseInOrder(this.root, []);
+  }
+  deapthFirstSearchPostOrder() {
+    return traversePostOrder(this.root, []);
+  }
+  deapthFirstSearchPreOrder() {
+    return traversePreOrder(this.root, []);
+  }
 }
+
+function traversePreOrder(node, list) {
+  list.push(node.value);
+  if (node.left) {
+    traversePreOrder(node.left, list);
+  }
+  if (node.right) {
+    traversePreOrder(node.right, list);
+  }
+  return list;
+}
+
+function traverseInOrder(node, list) {
+  if (node.left) {
+    traverseInOrder(node.left, list);
+  }
+  list.push(node.value);
+  if (node.right) {
+    traverseInOrder(node.right, list);
+  }
+  return list;
+}
+
+function traversePostOrder(node, list) {
+  if (node.left) {
+    traversePostOrder(node.left, list);
+  }
+  if (node.right) {
+    traversePostOrder(node.right, list);
+  }
+  list.push(node.value);
+  return list;
+}
+
+function isValidBST(root, min = -Infinity, max = Infinity) {
+  if (!root) return true;
+  return (
+    !(root.val <= min || root.val >= max) &&
+    isValidBST(root.left, min, root.val) &&
+    isValidBST(root.right, root.val, max)
+  );
+}
+//     9
+//  4     20
+//1  6  15  170
 
 const tree = new BinarySearchTree();
 tree.insert(9);
@@ -171,11 +224,7 @@ tree.insert(170);
 tree.insert(15);
 tree.insert(1);
 // JSON.stringify(traverse(tree.root));
-console.log(tree.breathFirstSearchRecursive());
-
-//     9
-//  4     20
-//1  6  15  170
+console.log(isValidBST(tree.root));
 
 function traverse(node) {
   const tree = { value: node.value };
